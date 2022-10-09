@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 10px;
+}
+
+body {
+    background-color: bisque;
+	background-repeat: no-repeat;
+	background-size: cover;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+h1 {text-decoration: underline;
+    color: #B09B71;  
+    font-size: 40px; 
+    }
+
+div {
+    position: absolute;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: rgb(254, 254, 255);
+    padding: 40px;
+    box-sizing: border-box;
+    border: 17px solid rgba(42, 136, 42, 0.1);
+    box-shadow: 20 20px 20px rgba(0, 0, 0, .2);
+    opacity: 0.6;
+}
+
+.otput {  
+	font-weight: bold; 
+	font-size: 15px; 
+	font-family: Tahoma, sans-serif;
+	text-indent: 10px;
+    }
