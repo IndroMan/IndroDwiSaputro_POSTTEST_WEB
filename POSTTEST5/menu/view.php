@@ -131,9 +131,9 @@ table tr td a {
         <table align="center" border="0" class="table">
             <tr>
                 <th>No</th>
-                <th>Nama Barang</th>
-                <th>Harga Barang</th>
-                <th>Stock Barang</th>
+                <th>Nama Menu</th>
+                <th>Harga Menu</th>
+                <th>Stok</th>
                 <th>Fungsi</th>
             </tr>
 
