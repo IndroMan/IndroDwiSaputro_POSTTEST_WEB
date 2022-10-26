@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2022 at 11:47 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Oct 26, 2022 at 08:17 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `markobar`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `id_menu` int(11) NOT NULL,
+  `nama_gambar` varchar(64) NOT NULL,
+  `upload_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `file` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `id_menu`, `nama_gambar`, `upload_on`, `file`) VALUES
+(5, 43, 'Martabak Telur', '2022-10-26 12:16:20', 'Martabak Telur.jfif');
 
 -- --------------------------------------------------------
 
@@ -39,7 +60,7 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga_menu`, `stok`) VALUES
-(1, 'Martabak Telur T-rex', 100000, 36);
+(43, 'Martabak Telur Ayam', 100000, 24);
 
 -- --------------------------------------------------------
 
@@ -60,12 +81,18 @@ CREATE TABLE `pasok` (
 --
 
 INSERT INTO `pasok` (`id_pasok`, `id_menu`, `tanggal_masuk`, `jumlah`, `total`) VALUES
-(2, 1, '2022-10-17', 4, 400000),
-(3, 1, '2022-10-17', 12, 1200000);
+(4, 43, '2022-10-26', 12, 1200000);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_menu` (`id_menu`);
 
 --
 -- Indexes for table `menu`
@@ -85,20 +112,32 @@ ALTER TABLE `pasok`
 --
 
 --
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `pasok`
 --
 ALTER TABLE `pasok`
-  MODIFY `id_pasok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pasok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `images`
+--
+ALTER TABLE `images`
+  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`);
 
 --
 -- Constraints for table `pasok`
